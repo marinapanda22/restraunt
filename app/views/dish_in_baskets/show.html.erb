@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Basket:</strong>
+  <%= @dish_in_basket.basket_id %>
+</p>
+
+<p>
+  <strong>Dish:</strong>
+  <%= @dish_in_basket.dish.title %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @dish_in_basket.title %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @dish_in_basket.dish.price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @dish_in_basket.quantity %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @dish_in_basket.total %>
+</p>
+
+<%= link_to 'Edit', edit_dish_in_basket_path(@dish_in_basket) %> |
+<%= link_to 'Back', dish_in_baskets_path %>

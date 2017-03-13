@@ -1,0 +1,15 @@
+
+ Ваш заказ:</br>
+    <% total_sum = 0 %>
+    <% current_user.baskets.last.dish_in_baskets.each do |dish_in_basket| %>
+       <div data-id="<%= dish_in_basket.id %>">
+	        <%= dish_in_basket.quantity %>
+	        <%= dish_in_basket.dish.title %>
+	        <%= dish_in_basket.dish.price %>
+	        <%= link_to 'Delete', dish_in_basket_path(dish_in_basket), method: 'delete', remote: true %>
+	        <%= total = dish_in_basket.dish.price * dish_in_basket.quantity %> 
+	        <% total_sum += total %>
+	        <br>
+        </div>     
+    <% end %> 
+    Итого:<%= total_sum %>

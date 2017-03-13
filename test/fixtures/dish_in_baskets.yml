@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  basket_id: 1
+  dish_id: 1
+  title: MyString
+  price: 9.99
+  quantity: 1
+  total: 1
+
+two:
+  basket_id: 1
+  dish_id: 1
+  title: MyString
+  price: 9.99
+  quantity: 1
+  total: 1

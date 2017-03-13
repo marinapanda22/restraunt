@@ -1,0 +1,1 @@
+json.array! @dish_in_baskets, partial: 'dish_in_baskets/dish_in_basket', as: :dish_in_basket

@@ -1,0 +1,27 @@
+<div class="alert alert-danger"><h3><%= link_to "Все заведения", root_path %></h3><h1><p class="text-center"><%= @cafe.title %></p></h1></div>
+<body>
+<p><%= image_tag "/uploads/#{@cafe.id}", width: 130, height: 150 %></p>
+<h4><%= @cafe.description %></h4>
+<h2>Блюда заведения</h2>
+<table>
+    <% @cafe.dishes.each do |dish|%>
+	    <%= dish.title %></br>
+			<tr><%= image_tag "/uploads/#{dish.id}", width: 130, height: 150 %></tr></br>
+			<div id="dish_in_basket">
+			    <% unless current_user.baskets.last.nil? %>
+				<%= form_for(DishInBasket.new, remote: true) do |f| %>
+					<%= f.hidden_field :basket_id, value: current_user.baskets.last.id %>
+					<%= f.hidden_field :dish_id, value: dish.id %>
+					<%= f.select(:quantity, options_for_select(1..10)) %>
+					<div id ="dish-section">
+					   <%= f.submit "Добавить в корзину" %>
+					</div>
+						
+					</div>
+				<% end %>
+				<% end %>
+			</div>
+	    </br>
+    <% end %>	
+</table>
+

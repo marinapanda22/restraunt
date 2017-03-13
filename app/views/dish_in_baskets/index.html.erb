@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dish In Baskets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Basket</th>
+      <th>Dish</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dish_in_baskets.each do |dish_in_basket| %>
+      <tr>
+        <td><%= dish_in_basket.basket_id %></td>
+        <td><%= dish_in_basket.dish_id %></td>
+        <td><%= dish_in_basket.title %></td>
+        <td><%= dish_in_basket.price %></td>
+        <td><%= dish_in_basket.quantity %></td>
+        <td><%= dish_in_basket.total %></td>
+        <td><%= link_to 'Show', dish_in_basket %></td>
+        <td><%= link_to 'Edit', edit_dish_in_basket_path(dish_in_basket) %></td>
+        <td><%= link_to 'Destroy', dish_in_basket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dish In Basket', new_dish_in_basket_path %>

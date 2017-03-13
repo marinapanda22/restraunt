@@ -1,0 +1,17 @@
+<div class="alert alert-danger"><h3><%= link_to "Все заведения", root_path %></h3><h1><p class="text-center"><%= @category.title %></p></h1></div>
+	<% @category.dishes.each do |dish| %>
+		<p><%= image_tag "/uploads/#{dish.id}", width: 100, height: 150 %></p>
+        <%= dish.title %></br>
+        <div class="dish_in_cart">
+			    <% unless current_user.baskets.last.nil? %>
+				<%= form_for(DishInBasket.new) do |f| %>
+					<%= f.hidden_field :basket_id, value: current_user.baskets.last.id %>
+					<%= f.hidden_field :dish_id, value: dish.id %>
+					<%= f.select(:quantity, options_for_select(1..10)) %>
+					<div class="actions">
+						<%= f.submit "Добавить в корзину" %>
+					</div>
+				<% end %>
+				<%end%>
+			</div>
+    <%end%>
