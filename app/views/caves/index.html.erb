@@ -16,7 +16,7 @@
   <tbody>
     <% @caves.each do |cafe| %>
       <tr>
-        <td><%= image_tag "/uploads/#{cafe.id}", width: 100, height: 150 %></td>
+        <td><%= image_tag cafe.image.url(:medium) %></td>
         <td><%= cafe.title %></td>
         <td><%= cafe.image %></td>
         <td><%= cafe.description %></td>

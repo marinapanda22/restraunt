@@ -26,7 +26,7 @@ class CavesController < AdminController
 
     respond_to do |format|
       if @cafe.save
-       upload_image
+       # upload_image
 
         format.html { redirect_to @cafe, notice: 'Cafe was successfully created.' }
         format.json { render :show, status: :created, location: @cafe }
@@ -36,21 +36,21 @@ class CavesController < AdminController
       end
     end
   end
-  def upload_image
-   uploaded_file = params[:cafe][:picture]
-      unless uploaded_file.nil?
-        new_file_path = Rails.root.join('public', 'uploads', @cafe.id.to_s)
-        File.open(new_file_path, 'wb') do |file|
-          file.write uploaded_file.read
-        end
-      end
-  end
+  # def upload_image
+  #  uploaded_file = params[:cafe][:picture]
+  #     unless uploaded_file.nil?
+  #       new_file_path = Rails.root.join('public', 'uploads', @cafe.id.to_s)
+  #       File.open(new_file_path, 'wb') do |file|
+  #         file.write uploaded_file.read
+  #       end
+  #     end
+  # end
   # PATCH/PUT /caves/1
   # PATCH/PUT /caves/1.json
   def update
     respond_to do |format|
       if @cafe.update(cafe_params)
-        upload_image
+        # upload_image
         format.html { redirect_to @cafe, notice: 'Cafe was successfully updated.' }
         format.json { render :show, status: :ok, location: @cafe }
       else

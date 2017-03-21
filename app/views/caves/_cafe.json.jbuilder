@@ -1,2 +1,2 @@
-json.extract! cafe, :id, :title, :image, :description, :created_at, :updated_at
+json.extract! cafe, :id, :title, :image, :description
 json.url cafe_url(cafe, format: :json)

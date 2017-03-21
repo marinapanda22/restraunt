@@ -1,4 +1,5 @@
 class ListController < ApplicationController
+  # layout 'admin'
   def main
   	@caves = Cafe.all
   	@categories = Category.all

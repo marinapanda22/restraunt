@@ -1,4 +1,4 @@
-<div class="alert alert-danger"><h1><p class="text-center"> Все заведения</p></h1></div>
+<div class="alert alert-danger"><h1><p class="text-center"> Все заведения</p></h1></div><%= link_to "Logout", destroy_user_session_path, method: :delete %>
 <body>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -28,8 +28,8 @@
     <% @caves.each do |cafe| %>
 	  <tr>
 	    <td><h4><%= link_to cafe.title, list_one_path(cafe.id)  %></h4></td>
-	    <td><%= image_tag "/uploads/#{cafe.id}", width: 130, height: 150 %></td>
-	    <td><h4>Средний чек: <%= cafe.image %></h4></td></br>
+	    <td><%= image_tag cafe.image.url(:thumb), width: 130, height: 150 %></td>
+	    </br>
 	  </tr>
 	<% end %>   
  </tbody> 	
