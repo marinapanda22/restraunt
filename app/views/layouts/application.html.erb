@@ -9,31 +9,27 @@
   </head>
 
   <body>
-
-  <% if current_user.baskets.last.nil? %>
-
-    <div class="cart">
-      <%= form_for(Basket.new) do |f| %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-
-        <div id="button">
-        Cоздайте корзину
-        <%= f.submit "", :type => :image, :src => "/0.jpg" %>
-        </div>
-
-      <% end %>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+      
+      <ul class="navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <p class="navbar-text">
+            Hello, <%= link_to current_user.name, edit_user_registration_path(current_user), class: 'navbar-link' %>
+          </p>
+          <ul class="nav navbar-nav">
+                <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        <% else %>
+          <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-default navbar-btn' %>
+          <%= link_to 'Log in', new_user_session_path, class: 'btn btn-default navbar-btn' %>
+        <% end %>
+      </ul>
     </div>
 
-  <% end %>
 
   
 
-  <div id="dish_in_basket">
-    <% unless current_user.baskets.last.nil? %>
-    
-       <%= render 'dish_in_baskets/dish_in_basket' %>
-    <%end%>
-  </div>
+  
   
     <%= yield %>
   </body>

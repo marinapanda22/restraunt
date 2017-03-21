@@ -69,6 +69,6 @@ class BasketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def basket_params
-      params.require(:basket).permit(:user_id)
+      params.require(:basket).permit(:user_id, :cafe_id)
     end
 end
