@@ -5,6 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'rspec'
+end
+
 gem 'paperclip'
 gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'devise'
